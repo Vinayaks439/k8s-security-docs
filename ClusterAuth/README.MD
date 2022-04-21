@@ -36,8 +36,10 @@ Required: You need to be a cluster admin to perform these operations.
 2. Run openssl command to generate a csr file and private key.
 
 
+
 `openssl req -new -newkey rsa:2048 -nodes -out certificate.csr -keyout certificate.key -config config.cnf`
-  
+
+
 
 4. Now the cluster admins need to pick this csr file from the user and create an CertificateSigningRequest object in k8s.
 
@@ -60,23 +62,31 @@ Required: You need to be a cluster admin to perform these operations.
 5. After creating this object the cluster admins can either approve it or deny it.
 
 
+
 `kubectl certificate approve/deny <USER_NAME>`
+
 
 
 6. If this CSR is approved then the cluster admins can provide the final client cert to the user.
 
 
- `kubectl get csr <USER_NAME> -o jsonpath='{.status.certificate}' | base64 --decode > USER_NAME.crt`
+
+`kubectl get csr <USER_NAME> -o jsonpath='{.status.certificate}' | base64 --decode > USER_NAME.crt`
+
 
 
 7. Now the User has his signed cert from the k8s CA and his private key with these now he can authenticate to the k8s cluster.
+
+
 
 
 ### - Authenticating to the K8s cluster.
 
 1. Now that the user has his certs signed, he need to request k8s server's ca.cert which is public cert. He can get it from this command
 
-           openssl s_client -showcerts -connect 127.0.0.1:61442
+
+
+`openssl s_client -showcerts -connect 127.0.0.1:61442`
 
     
 
@@ -127,8 +137,9 @@ b.) Or by using Yaml.
 ### - Setting up RBAC for the user.
 
 - Now the User has no perms to view the resources inside the cluster. He can check this by using this command
+
        
-            kubectl auth can-i --list
+`kubectl auth can-i --list`
 
     
 - Inorder to provide access to specific resources the cluster admin has to assign RBAC rules for the user.
