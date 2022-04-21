@@ -76,7 +76,7 @@ Required: You need to be a cluster admin to perform these operations.
 
 1. Now that the user has his certs signed, he need to request k8s server's ca.cert which is public cert. He can get it from this command
 
-           ` openssl s_client -showcerts -connect 127.0.0.1:61442`
+           openssl s_client -showcerts -connect 127.0.0.1:61442
 
     
 
@@ -85,18 +85,18 @@ Required: You need to be a cluster admin to perform these operations.
 
 ### - Generate KubeConfig. 
 
-        There are two ways to add this info in ~/.kube/config.
+There are two ways to add this info in ~/.kube/config.
 
 a.) By using kubectl commands as follows:
 
 
 ```
-                    kubectl config set-cluster <CLUSTER_NAME> --server=https://<API-server-URL>
-                    kubectl config set-cluster <CLUSTER_NAME> --embed-certs --certificate-authority=ca.cert
-                    kubectl config set-context <CLUSTER_NAME> --user=<USER_NAME>
-                    kubectl config set-credentials <USER_NAME> --client-certificate=USER_NAME.cert --client-key=USER_NAME.key
-                    kubectl config set contexts.<CLUSTER_NAME>.cluster <CLUSTER_NAME>
-                    kubectl config view
+kubectl config set-cluster <CLUSTER_NAME> --server=https://<API-server-URL>
+kubectl config set-cluster <CLUSTER_NAME> --embed-certs --certificate-authority=ca.cert
+kubectl config set-context <CLUSTER_NAME> --user=<USER_NAME>
+kubectl config set-credentials <USER_NAME> --client-certificate=USER_NAME.cert --client-key=USER_NAME.key
+kubectl config set contexts.<CLUSTER_NAME>.cluster <CLUSTER_NAME>
+kubectl config view
 ```
 
 b.) Or by using Yaml.
@@ -128,7 +128,7 @@ b.) Or by using Yaml.
 
 - Now the User has no perms to view the resources inside the cluster. He can check this by using this command
        
-            `kubectl auth can-i --list`
+            kubectl auth can-i --list
 
     
 - Inorder to provide access to specific resources the cluster admin has to assign RBAC rules for the user.
