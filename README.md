@@ -126,9 +126,10 @@ b.) Or by using Yaml.
 
 ### - Setting up RBAC for the user.
 
-    - Now the User has no perms to view the resources inside the cluster. He can check this by using this command
+- Now the User has no perms to view the resources inside the cluster. He can check this by using this command
+
        
-            `kubectl auth can-i --list`
+`kubectl auth can-i --list`
 
     
-    - Inorder to provide access to specific resources the cluster admin has to assign RBAC rules for the user.
+- Inorder to provide access to specific resources the cluster admin has to assign RBAC rules for the user.
