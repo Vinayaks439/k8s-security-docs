@@ -87,7 +87,7 @@ Required: You need to be a cluster admin to perform these operations.
 
         There are two ways to add this info in ~/.kube/config.
 
-            a.) By using kubectl commands as follows:
+a.) By using kubectl commands as follows:
 
 
 ```
@@ -99,8 +99,7 @@ Required: You need to be a cluster admin to perform these operations.
                     kubectl config view
 ```
 
-
-            b.) Or by using Yaml.
+b.) Or by using Yaml.
 
 ```
                     apiVersion: v1
