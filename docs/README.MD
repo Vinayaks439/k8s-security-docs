@@ -86,7 +86,7 @@ Required: You need to be a cluster admin to perform these operations.
 
 
 
-`openssl s_client -showcerts -connect 127.0.0.1:61442`
+`openssl s_client -showcerts -connect <API-server-URL>`
 
     
 
