@@ -40,7 +40,7 @@ curl -s -H 'Metadata-Flavor: Google' 'http://metadata.google.internal/computeMet
 
 `kubectl --client-certificate bootstrap.crt --client-key boostrap.key --certificate-authority ca.crt --server https://${KUBERNETES_PORT_443_TCP_ADDR} get certificatesigningrequests`
 
-- If you are able to list the csr objects then it is time to create one for yourself and access the cluster using your own certs. (More details on How to access cluster using the certs api is documented here)[https://github.com/Vinayaks439/k8s-security-docs/blob/main/docs/CreateUser.MD]
+- If you are able to list the csr objects then it is time to create one for yourself and access the cluster using your own certs. [More details on How to access cluster using the certs api is documented here](https://github.com/Vinayaks439/k8s-security-docs/blob/main/docs/CreateUser.MD)
 
 - Create a key and CSR cert by using openssl command.
 
@@ -71,7 +71,7 @@ EOF
 
 **Note: The spec.expirationSeconds field was added in Kubernetes v1.22. Earlier versions of Kubernetes do not honor this field. Kubernetes API servers prior to v1.22 will silently drop this field when the object is created.**
 
-- Make sure your object alings well with this documentation which has rules pertaining to your (signerName)[https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/#kubernetes-signers]
+- Make sure your object alings well with this documentation which has rules pertaining to your [signerName](https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/#kubernetes-signers)
 
 - Once your CSR object is auto aprroved and issued, you can fetch your signed public.crt using the following command below.
 
