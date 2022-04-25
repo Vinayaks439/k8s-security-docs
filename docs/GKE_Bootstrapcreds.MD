@@ -6,7 +6,7 @@ Required: You need to be a inside a pod and have kubectl curl installed.
 
 1. Vulnerable Systems in GKE
 
-- A cluster which has no workload identity configured for k8s cluster
+- A cluster which has no workload identity and Metadata Concealment configured for k8s cluster
 - A cluster with workload identity configured but the pod has hostNetwork: true flag in its spec
 
 2. Description of the expolit
